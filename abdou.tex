@@ -1,0 +1,312 @@
+\usepackage{fancyhdr}
+\usepackage{fourier-orns}
+\usepackage{hyperref}%% To refrence links / jumps
+\usepackage{chngcntr} %% For some extra counters numberings
+\usepackage[a4paper, right = 0.5in, left = 0.5in,top = 1in , bottom = 1in]{geometry}
+\usepackage{etoolbox} %% Provides like a language for advanced customization
+\usepackage{datetime} %% For dates of course
+\usepackage{lastpage} %% provides pages numbers
+\usepackage[sc]{titlesec} %% modify titles
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{tikzsymbols}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{import}
+\usepackage{pdfpages} %% include other pdfs
+\usepackage{transparent} %% Transparency
+\usepackage{xcolor}  %% Colors
+\usepackage[many]{tcolorbox}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{tikz}
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{mathpazo}
+
+\usepackage{fontawesome5}
+
+\linespread{1.5}
+
+
+\titleformat{\chapter}[display]   
+{\fontfamily{ppl}\selectfont\huge\color{YellowOrange!80!orange}} % Font style and size 
+{\raggedleft\color{purple}\fontsize{70}{0pt}\selectfont\thechapter}   
+{-1.5cm}    			                          % Space between the chapter number and title
+{
+	\begin{tikzpicture}[overlay]
+		\node[anchor = west,yshift = 0.2cm,xshift = -1cm] {\fontsize{90}{20} $\int_{}^{} $};
+		\node[yshift = 4cm, xshift = 17cm]   {\includegraphics[width = 4cm]{preview0}};
+	\end{tikzpicture}
+\hspace{1cm}\Huge\raggedright\MakeUppercase}
+
+\titleformat{\section}[block]
+{
+\fontfamily{ppl}\selectfont\huge\color{YellowOrange!80!orange}
+}
+{
+\color{purple}\fontsize{20}{0pt}\selectfont\thesection 
+}
+{0cm}
+{
+	\begin{tikzpicture}[overlay]
+		\node[anchor = west,yshift = 0.2cm,xshift = -0.4cm, circle = 1pt] {};
+	\end{tikzpicture}
+}
+
+\titlespacing*{\section}{0pt}{0.7cm}{1.5cm}
+
+
+\newcommand{\divider}
+{
+	\begin{center}
+	\begin{tikzpicture}
+		\draw[thick, black] (0.25*\textwidth, 0) -- (0.75*\textwidth, 0);
+		\node[rotate = 360 - 90, xshift = -0.6pt, yshift = 1pt] at (0.25*\textwidth,0){\decotwo};
+		\node[rotate = 90, xshift = -0.6pt, yshift = 1pt] at (0.75*\textwidth,0){\decotwo};
+	\end{tikzpicture}
+	\end{center}
+}
+
+\pagestyle{fancy}
+
+\newcommand{\lecday}[1][]
+{
+    \def\datee{#1}
+    \fancyhead[L]{\datee}
+}
+
+
+
+\newcommand{\signature}
+{
+	\begin{tikzpicture}[remember picture,overlay]
+		\node[fill = YellowOrange!20!white] at ([yshift = 1cm, xshift = -3cm]current page.south east) {\fontsize{10pt}{0pt}{\itshape Kara.$\mathcal{A}$}};
+	\end{tikzpicture}
+}
+
+\AddToHook{shipout/background}{
+  \begin{tikzpicture}[remember picture, overlay]
+	  \node[] at ([yshift = 1.5cm,xshift = \textwidth /2 + 0.9cm]current page.south west) {\includegraphics[width = 0.5cm]{preview3}};
+	  \node[] at ([yshift = 1.5cm,xshift = - \textwidth /2 - 0.9cm]current page.south east) {\includegraphics[width = 0.5cm]{preview4}};
+  \end{tikzpicture}
+}
+
+
+
+\newtcolorbox[auto counter, number within = section]{remark}[1][]
+{
+       		title = Remark #1,
+		enhanced,
+		boxrule = 0pt,
+		colback = white,
+		breakable,
+		arc = 4pt,
+		colbacktitle = cyan,
+		colback = cyan!5!white,
+		segmentation style =
+		{
+			solid,cyan,thick,
+		},
+		attach boxed title to top left =
+		{
+			xshift = 0cm,
+		},
+		boxed title style =
+		{
+			boxrule = 0pt,
+			sharp corners,
+			drop fuzzy shadow = {cyan},
+		},
+		drop fuzzy shadow = {cyan!80!black},
+}
+
+\newtcolorbox[auto counter, number within = section]{theorem}[1][]
+{                                      
+		title = Theorem \thetcbcounter : #1,
+		enhanced, 
+		boxrule = 0pt,
+		colback = white,
+		breakable,
+		arc = 4pt,
+		colbacktitle = purple,
+		colback = purple!5!white,
+		segmentation style = 
+		{
+			solid, purple,thick,
+		},
+		attach boxed title to top left = 
+		{
+			xshift = 0cm, 
+		},
+		boxed title style = 
+		{
+			boxrule = 0pt,
+			sharp corners,
+			drop fuzzy shadow = {purple},
+		},
+		drop fuzzy shadow = {purple!80!black},
+}
+
+\newtcolorbox[auto counter, number within = section]{definition}[1][]
+{                                      
+		title = Definition \thetcbcounter : #1,
+		enhanced, 
+		boxrule = 0pt,
+		colback = white,
+		arc = 4pt,
+		breakable,
+		colbacktitle = YellowOrange!80!black,
+		segmentation style = 
+		{
+			solid, YellowOrange,thick,
+		},
+		attach boxed title to top left = 
+		{
+			xshift = 0cm, 
+		},
+		colback = YellowOrange!5!white,
+		boxed title style = 
+		{
+			boxrule = 0pt,
+			sharp corners,
+			drop fuzzy shadow = {YellowOrange!80!orange},
+		},
+		drop fuzzy shadow = {YellowOrange!80!black},
+}
+
+\newtcolorbox[auto counter, number within = section]{corollary}[1][]
+{                                      
+		title = corollary \thetcbcounter : #1,
+		enhanced, 
+		boxrule = 0pt,
+		colback = white,
+		arc = 4pt,
+		breakable,
+		colbacktitle = YellowOrange!80!black,
+		segmentation style = 
+		{
+			solid, YellowOrange,thick,
+		},
+		attach boxed title to top left = 
+		{
+			xshift = 0cm, 
+		},
+		colback = YellowOrange!5!white,
+		boxed title style = 
+		{
+			boxrule = 0pt,
+			sharp corners,
+			drop fuzzy shadow = {YellowOrange!80!orange},
+		},
+		drop fuzzy shadow = {YellowOrange!80!black},
+}
+
+
+\newtcolorbox{example}[1][]
+{                                      
+		title = Example,
+		enhanced, 
+		boxrule = 0pt,
+		colback = white,
+		arc = 4pt,
+		segmentation style = 
+		{
+			solid, SpringGreen,thick,
+		},
+		breakable,
+		colback = SpringGreen!5!white,
+		colbacktitle = SpringGreen!80!black,
+		attach boxed title to top left = 
+		{
+			xshift = 0cm, 
+		},
+		boxed title style = 
+		{
+			boxrule = 0pt,
+			sharp corners,
+			drop fuzzy shadow = {SpringGreen!80!orange},
+		},
+		drop fuzzy shadow = {SpringGreen!80!black},
+}
+
+
+\newcommand{\integral}[4]{\int\limits_{#1}^{#2} #4 d#3}
+\newcommand{\limit}[3]{\lim\limits_{#1 \rightarrow #2} #3}
+\newcommand{\strone}[2]{\left[ \begin{gathered}#1\\ #2\end{gathered} \right] }
+\newcommand{\strtwo}[2]{\left\{ \begin{gathered}#1\\ #2\end{gathered} \right\} }
+\newcommand{\strthree}[2]{\left\lfloor \begin{gathered}#1\\ #2\end{gathered} \right\rfloor }
+
+
+\newcommand{\startbf}[1]{\text{\bfseries{#1}}}
+\newcommand{\sett}[1]{\left\{ #1 \right\}}
+\newcommand{\thesis}[1]{\left( #1 \right)}
+\newcommand{\brkt}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+
+\DeclareMathOperator{\img}{im} % Image
+\DeclareMathOperator{\Img}{Im} % Image
+\DeclareMathOperator{\coker}{coker} % Cokernel
+\DeclareMathOperator{\Coker}{Coker} % Cokernel
+\DeclareMathOperator{\Ker}{Ker} % Kernel
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Spec}{Spec} % spectrum
+\DeclareMathOperator{\Tr}{Tr} % trace
+\DeclareMathOperator{\pr}{pr} % projection
+\DeclareMathOperator{\ext}{ext} % extension
+\DeclareMathOperator{\pred}{pred} % predecessor
+\DeclareMathOperator{\dom}{dom} % domain
+\DeclareMathOperator{\ran}{ran} % range
+\DeclareMathOperator{\Hom}{Hom} % homomorphism
+\DeclareMathOperator{\Mor}{Mor} % morphisms
+\DeclareMathOperator{\End}{End} % endomorphism
+
+
+\newcommand{\lm}{\ensuremath{\lambda}}
+\newcommand{\eps}{\ensuremath{\epsilon}}
+\newcommand{\veps}{\ensuremath{\varepsilon}}
+\newcommand{\al}{\ensuremath{\alpha}}
+\newcommand{\bb}{\ensuremath{\beta}}
+\newcommand{\cc}{\ensuremath{\gamma}}
+\newcommand{\dd}{\ensuremath{\delta}}
+\newcommand{\DD}{\ensuremath{\Delta}}
+\newcommand{\ff}{\ensuremath{\phi}}
+\newcommand{\FF}{\ensuremath{\varphi}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\RO}{\mathcal{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RW}{\mathbb{R}^2}
+\newcommand{\RT}{\mathbb{R}^3}
+\newcommand{\RN}{\mathbb{R}^n}
+\newcommand{\DS}{\mathcal{D}}
+
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\KW}{\mathbb{K}^2}
+\newcommand{\KT}{\mathbb{K}^3}
+\newcommand{\KN}{\mathbb{K}^n}
+
+\newcommand{\NN}{\mathbb{N}}
+
+\newcommand{\PS}{\mathcal{P}}
+\newcommand{\AS}{\mathcal{E}}
+\newcommand{\FS}{\mathcal{F}}
+\newcommand{\LS}{\mathcal{L}}
+\newcommand{\MS}{\mathcal{M}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
