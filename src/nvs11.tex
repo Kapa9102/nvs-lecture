@@ -1,0 +1,432 @@
+% \documentclass{report}
+% \input{abdou.tex}
+
+\lecday[2025-03-13]
+
+% \begin{document}
+
+\section{Series in N.V.S}
+\begin{definition}[]
+Let $E $ be a N.V.S over $\KK=\RR  $ or $\CC  $, 
+and let $ \left( u_{n} \right)_{n \in \NN} $. \\
+The infinite sum $\sum_{k=0}^{\infty } u_{k} $, 
+is called the series of $E $ with general term
+$u_{k} $, For $n \in \NN $ fixed,
+the finite sum $S_{n}= \sum_{k=1}^{n} u_{k} $ 
+is called the $n^{th} $ partial sum (or the partial
+sum of rank $n $) of the series
+$\sum_{k=1}^{n} u_{k} $, we say that 
+the series $\sum_{k=1}^{\infty }  u_{k}$  
+converges in $E $ if the sequence $\left( S_{n} \right)_{n
+\in  \NN} $ converges in $E $, In such a case, we call 
+the limit $S $ of 
+$\left( S_{n} \right)_{n
+\in  \NN} $, the sum 
+of the series $\sum_{k=1}^{\infty }u_{k}$,
+and we write,
+\[
+\sum_{k=1}^{\infty } 
+u_{k} = S
+\]
+- Besides for $n \in \NN $, 
+$R_{n} := S - S_{n} $ is called
+the $n^{th} $  remainder 
+or the remainder of rank $n $ of 
+the series $\sum_{k=1}^{\infty } u_{k} $,
+and we often write,
+\[
+	R_{n} =
+	\sum_{k=n+1}^{\infty } 
+	u_{k}
+\]
+- If a series of $E $is not 
+convergent, we say taht its divergent
+\end{definition}
+\divider
+\it The concept of series is rather
+important in a banach space, then
+in an arbitrary N.V.S
+\normalfont
+\divider
+\begin{definition}[Cauchy Criterion]
+	Let $E $ be a Banach N.V.S over 
+	$\KK = \RR  $ or $\CC  $ and 
+	let $\sum_{k=1}^{\infty } u_{k} $ be 
+	a series of $E $. Then 
+	$\sum_{k=1}^{\infty } u_{k} $ is
+	convergent if and only if it satisfies
+	\[
+	\forall  ps > 0,
+	\exists  N \in \NN, 
+	\forall p,q \in \NN : 
+	\quad p> q \geq \NN \implies 
+	\| \sum_{k=q+1}^{p} u_{k} \|  \leq \veps 
+	\]
+\end{definition}
+\begin{proof}
+Let $(S_n )_{n \in \NN} $ be the sequence
+of partial sums of $\sum_{k=1}^{\infty } 
+u_{k}$, (i.e. $S_{n} = 
+\sum_{k=1}^{n} u_{k}$, $\forall n \in \NN $), 
+so we have, 
+\begin{align*}
+\sum_{k=1}^{\infty }  
+u_{k} \text{ is convergent }  & \iff 
+\text{ $ (S_{n})_{n \in \NN} $ is convergent }  \\
+			      & \iff 
+\text{ $ (S_n) _{n \in \NN} $ is Cauchy 
+ }  \hfill \text{( Since $E $ is Banach )}  \\
+			      & \iff 
+	     \forall \veps > 0,
+	     \exists  N \in \NN, 
+	     \forall p,q \in \NN :
+	     \quad  p > q \geq \NN \implies 
+	     \| S_{p} - S_{q} \|  < ps
+	     \\
+			      & \iff 
+	p > q \geq \NN \implies 
+	\| \sum_{k=q+1}^{p} u_{k} \|  
+	< \veps 
+\end{align*}
+as required. 
+\end{proof}
+\newpage
+
+\begin{definition}[]
+Let $E $ be a N.V.S over $\KK = \RR  $ or 
+$\CC  $, a series $\sum_{k=1}^{\infty } 
+u_{k}$ of $E $ is said to be \it normally
+convergent \normalfont if the real series 
+(with nonegative terms) 
+$\sum_{k=1}^{\infty } \| u_{k} \| $ 
+converges. (in $\RR$)
+\end{definition}
+\begin{theorem}[]
+	Let $E $ be a Banach N.V.S 
+	over $\KK = \RR  $ or $\CC  $,
+	if a series $\sum_{k=1}^{\infty } 
+	u_{k}$ of $E $ is \it normally convergent
+	\normalfont then its convergent
+	and we have in this case : 
+	\[
+	\| 
+	\sum_{k=1}^{\infty } 
+	u_{k}\|  \leq 
+	\sum_{k=1}^{\infty } 
+	\| u_{k} \| 
+	\]
+\end{theorem}
+\begin{proof}
+Let $\sum_{k=1}^{\infty } u_{k}$  be
+a series of $E $, suppose that 
+$\sum_{k=1}^{\infty } u_{k} $ 
+is normally convergent (i.e. 
+the real series 
+$\sum_{k=1}^{\infty}  \| u_{k} \|  $ 
+converges), and let us prove
+that $\sum_{k=1}^{\infty}  u_{k} $  is convergent
+for all $p,q \in \NN $, with $p > q $ we have, 
+\begin{equation}
+	0 
+	\leq  
+	\| \sum_{k=q+1}^{p} u_{k} \|  
+	\overset{I.I}{ \leq }  
+	\sum_{k=q+1}^{q} 
+	\| u_{k} \|  
+	\label{eq:ins}
+\end{equation}
+but since $\sum_{k=1}^{\infty} \| u_{k} \|   $ 
+is assumed convergent in $\RR  $ then it 
+satisfies the cauchy criterion i.e., 
+\[
+\lim_{p,q \to \infty} 
+\sum_{k=q+1}^{p} 
+\| u_{k} \|  = 0
+\]
+Consequently by applying the squeeze theorem in 
+(1), we get, 
+\[
+\lim_{p,q \to \infty} 
+\| \sum_{k=q+1}^{p} u_{k} \|  
+= 0
+\]
+implying since $E $ is banach, that 
+the series 
+$\sum_{k=1}^{\infty}  u_{k} $  is convergent,
+as required.\\
+Now let us prove the inequality of the theorem
+in the case when
+the series $\sum_{k=1}^{\infty}  u_{k} $  
+is normally convergent then for all 
+$n \in \NN $, we have, 
+\[
+\| \sum_{k=1}^{n} u_{k} \|  \leq 
+\sum_{k=1}^{n} 
+\| u_{k} \| 
+\]
+by letting $n \rightarrow  \infty  $, and 
+using the continuity of $\| . \|  $, we get, 
+\[
+	\| \sum_{k=1}^{\infty}  u_{k} \|  
+	\leq \sum_{k=1}^{\infty}  \| u_{k} \| 
+\]
+as required, This completes the proof
+\end{proof}
+
+- \textbf{An Important Example} \it(Exponential
+of an operator of a Banach Space) \normalfont \\
+ Let $E $ be a Banach N.V.S over $\KK = \RR$ or
+ $\CC $, and let 
+ $f \in \mathcal{L} (E) := \mathcal{L} (E,E)  $ 
+ consider the series $\sum_{n=0}^{\infty } 
+ \frac{f^{n}}{n!}$ in $\left( \mathcal{L} (E)  \right) $,
+ then we have for all $n \in \NN_{0} $, 
+ \fbox{
+	 \lefthand ~ Note that 
+	 $f^{n} = 
+	 \underbrace{
+	 f \circ f \circ  \hdots \circ  f
+	 }_{\text{ n times } }$ 
+ }
+ \[
+ \mid \mid \mid  \frac{f^{n}}{
+ n!} \mid \mid \mid  = 
+ \frac{1}{n!}
+ \mid \mid \mid  f^{n} \mid \mid \mid  
+ \leq \frac{1}{n!} \mid \mid \mid  f \mid \mid \mid ^{n}
+ \]
+ Since the real series
+ $\sum_{k=1}^{\infty}  \frac{1}{k!}
+ \mid \mid \mid  f \mid \mid \mid 
+ ^{k}$ converges to 
+ $\exp{ \left( \mid \mid \mid  f \mid \mid \mid  \right)} $ 
+ then the real series $\sum_{k=1}^{\infty}  
+ \mid \mid \mid  \frac{f^{k}}{k!} \mid \mid \mid $  
+ is also convergent, that is the series
+ $\sum_{k=1}^{\infty}  \frac{f^{k}}{
+ k!} $  (of $\mathcal{L} (E)  $ ) 
+ is normally convergent but since
+ $\mathcal{L} (E)  $ is Banach,(because 
+ $E $ is Banach) then 
+ according to the theorem, The series
+ $\sum_{k=1}^{\infty}  \frac{f^{k}}{
+ k!} $ is convergent in $\mathcal{L} (E)  $, 
+ and we have 
+ \begin{equation}
+ \mid \mid \mid  \sum_{k=1}^{\infty}  
+ \frac{f^{k}}{k!}\mid \mid \mid  
+ \leq 
+ e^{\mid \mid \mid  f \mid \mid \mid }
+ \end{equation}
+ \begin{definition}[]
+ In the above situation (i.e. 
+ if $E $is a Banach space and 
+ $f \in \mathcal{L}(E)   $) the sum 
+ of the convergent 
+ series 
+ $\sum_{k=1}^{\infty}  \frac{f^{k}}{k!} $ 
+ is called the exponential
+ of the operator 
+ $f $ and denoted by $e^{f} $ 
+ or $\exp{ (f) } $, so we have according to (2), 
+ \begin{equation}
+ \mid \mid \mid  e^{f} \mid \mid \mid  
+ \leq 
+ e^{\mid \mid \mid  f \mid \mid \mid }  
+ \quad \left( \forall  f \in 
+ \mathcal{L} (E) \right)
+ \end{equation}
+ \end{definition}
+ \begin{remark}[]
+ If $E $ is a Banach space, and 
+ $f,g \in  \mathcal{L} (E)  $, the 
+ equality of eperators, 
+ \[
+ e^{f+g}= 
+ e^{f} \circ e^{g}
+ \]
+ is in general false, but it becomes true
+ when $f$ and $g$ \it commute.
+ \end{remark}
+ \divider
+ \begin{align*}
+	 e^{x} \cdot  e^{y} &=  
+	 \sum_{n=0}^{\infty}  
+	 \frac{x^{n}}{n!}  
+	 \sum_{n=0}^{\infty}  
+	 \frac{y^n }{n ! } 
+	 \\
+			    &= 
+			    \sum_{n=0}^{\infty}  
+			    \sum_{k=0}^{n} 
+			    \left( 
+				    \frac{x^n }{
+				   k!}
+				   \frac{y^{n-k}}{
+				   (n-k) !}
+			    \right)
+			    \\
+			    &= \sum_{n=0}^{\infty}  
+	\frac{1}{n!} \sum_{k=0}^{n}  
+	\binom{n}{k} 
+	x^n  y^{n-k} \\
+			    &= 
+			    \sum_{n=0}^{\infty}  
+			   \frac{1}{n!}
+			   (x+y) ^{n} = 
+			   e^{x+y}
+ \end{align*}
+ \divider
+ In particular, we have for all 
+ $f \in  \mathcal{L} (E)  $, 
+ \begin{align*}
+	 e^{f} \circ e^{-f} &= 
+ e^{0_{\mathcal{L} (E) }} = 
+ id_{E} \\
+	 e^{-f} \circ  e^{f} &= 
+ e^{0_{\mathcal{L} (E) }} = id_{E}
+ \end{align*}
+ Consequently, for every 
+ $f \in \mathcal{L} (E)  $, the operator 
+ $e ^{f} (\in  \mathcal{L} (E) )  $ is invertible
+ (i.e., $e^{f} \in GL(E)   $), and 
+ $\left( e^{f} \right)^{-1} = e^{-f}$. 
+
+ - \textbf{A particular case : } let $n \in \NN $, 
+ we take $E = \KK^{n} $ where $\KK = \RR  $ or 
+ $\CC  $, and we verify identity 
+ $\mathcal{L} (E)  = L(E)  $ to 
+ $\mathcal{M}_n  (\KK) $.
+
+ Since $E $ is finite dimensional then its Banach so,
+ we can define the exponential of a matrix
+ $A $ of $\mathcal{M} _{n}(\KK)  $ by, 
+ \[
+ e^{A} = 
+ \sum_{n=0}^{\infty}  \frac{A^{n}}{n!} \in 
+ \mathcal{M}_{n}(\KK)  
+ \]
+ in general $e^{A+B} \neq  e^{A} \cdot e^{B} $, for 
+ $A,B \in  \mathcal{M}_n  (\KK)  $, but 
+ if $AB = BA $, then we have 
+ $e^{A+B}= e^{A} \cdot e^{B}= e^{B} \cdot e^{A}$.
+ \\
+ \begin{center}
+ 	\textbf{Exercise 01 : }
+ \end{center}
+ Let $n \in \NN $, and let $\lm_1, \ddots , \lm_n 
+ \in \KK$, where $\KK = \RR  $ or $\CC  $, 
+ set $D = diag(\lm_1, \hdots , \lm_n )$. 
+ \begin{enumerate}[(1)]
+ \item Show that 
+	 \[
+	 e^{D}= 
+	 diag(e^{\lm_1}, e^{\lm_2}, \hdots , 
+	 e^{\lm_n })  
+	 = 
+	\begin{pmatrix}
+		e^{\lm_1} & \hdots  & (0)  \\
+		\vdots  & \ddots  & \vdots  \\
+		(0)   & \hdots  & 
+		e^{\lm_n }\\
+	\end{pmatrix}
+	 \]
+ \end{enumerate}
+ \begin{proof}
+ \begin{align*}
+	 e^{D} &= 
+	\sum_{k=0}^{\infty}  
+	\frac{D^{k}}{k!} = 
+	\sum_{k=1}^{\infty}  
+	\frac{1}{k!} 
+	\begin{pmatrix}
+		\lm_1^{k} & \hdots   &(0)   \\
+		\vdots  & \ddots  & \vdots  \\
+		(0)  & \hdots  & \lm_n ^k  \\
+	\end{pmatrix}
+	\\
+	       &= 
+	\begin{pmatrix}
+		\sum_{k=0}^{\infty}  
+	\frac{\lm_1^k }{k!}& \hdots  & (0)  \\
+		\vdots  & \ddots  & \vdots   \\
+		(0)  & \hdots  & 
+	\sum_{k=0}^{\infty}  \frac{\lm_n ^k }{k!}\\
+	\end{pmatrix}
+ \end{align*}
+ \end{proof}
+ \begin{center}
+ \textbf{Exercise 02 : }
+ \end{center}
+Llet $n \in \NN $, and $P \in  
+ GL_n (\KK) $, where $\KK = \RR  $ or $\CC  $, 
+ and $A \in \mathcal{M} _{n}(\KK)  $. 
+ \begin{enumerate}[(1)]
+ \item Show that : 
+	 \[
+	 \exp{\left( 
+	 P ^{-1} A  P \right)} =
+	 P ^{-1} \exp{(A) } P
+	 \]
+ \end{enumerate}
+ \begin{proof}
+ \begin{align*}
+ \exp{( P ^{-1} A P))} =
+ \sum_{k=0}^{\infty}  
+ \frac{(P ^{-1} A P) ^k }{k !} &=
+\sum_{k=0}^{\infty}  \frac{1}{k!}
+\left( P ^{-1} A^k P \right) \\
+			       &= 
+	P ^{-1} \left( 
+	\sum_{k=0}^{\infty}  \frac{A^{k}}{k!}\right) 
+	P = P ^{-1} e^{A} P
+ \end{align*}
+ \end{proof}
+\begin{theorem}[]
+Let $n \in \NN $, and $x_0 \in \RR ^n  $, and 
+$A \in   \mathcal{M} _{n}(\RR ) $ and denote
+by $X $ a function of $t $ from $\RR  $  to 
+$\RR ^n  $, by 
+\[
+\begin{array}{cccc}
+      X : &  \RR   & \longrightarrow & \RR ^n  \\
+           &  t  & \longmapsto     & X(t)  \\ 
+\end{array}
+\]
+then the solution of the linear differential
+system with initial condition 
+\begin{equation}
+\begin{cases}
+X(0)  = x_0 \\
+X'(t)  = A \cdot X(t) 
+\end{cases}
+\end{equation}
+is the following : 
+\[
+X (t) = e^{tA} x_0
+\]
+\end{theorem}
+\begin{proof}
+Put  $Y(t) = e^{-tA}X(t) $, then 
+\[
+Y'(t) = -A e^{-tA} X(t)  + 
+e^{-tA} X'(t) 
+\]
+so $X$ is a solution of  $(5)$, we have 
+\[
+\begin{cases}
+X(0)  = x_0 \\
+X'(t)  = A X(t)  \\
+\end{cases}
+\iff 
+\begin{cases}
+Y(0)  = x_0 \\
+Y'(t)  = 0_{\RR ^n }
+\end{cases}
+\iff 
+Y(t) = x_0 \quad  \left( \forall  t \in \RR   \right)
+\]
+we deduce 
+$X(t)  = e^{tA} x_0 $ 
+\end{proof}
+% \end{document} 

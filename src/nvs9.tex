@@ -1,0 +1,349 @@
+% \documentclass{report}
+% 
+% \input{preamble.tex}
+
+\lecday[2025-03-06]
+
+% \begin{document}
+
+\section{An important isomorphism isometric}
+
+Let $E,F$ and $G $ be three N.V.S over the same 
+field $\KK = \RR  \text{ or }  \CC  $, then there exist
+a natural transformation from 
+$\mathcal{L}(E, \mathcal{L} (F,G)) $  to 
+$\mathcal{L} \left( E,F ;G \right) $, which is defined
+by 
+\[
+\begin{array}{cccc}
+      i : &  \mathcal{L} 
+	  \left( E, \mathcal{L} 
+\left( F,G \right)\right)& \longrightarrow & 
+\mathcal{L} \left( F,F ; G \right)\\
+
+           &  f  & \longmapsto     & 
+	   i \left( f \right) : 
+	   \vspace{2pt}
+	   \begin{array}{cccc}
+	            &  
+		  E \times F & \longrightarrow & 
+		  G \\
+	              & (x,y)     & \longmapsto     &
+		      i(f) (x,y) = 
+		      f(x)  f(y) \\ 
+	   \end{array}
+	   \\ 
+\end{array}
+\]
+Its easy to show that its well defined, linear and
+bijective with $i^{-1} $ give :
+
+\[
+\begin{array}{cccc}
+      i^{-1} : &  
+	       \mathcal{L} (E,F;G) & \longrightarrow & 
+	       \mathcal{L} \left( E, \mathcal{L} (F,G)  \right)\\
+           &  g  & \longmapsto     & i^{-1}(g)  : 
+	   \begin{array}{cccc}
+	           &  E   & \longrightarrow &  \mathcal{L}
+		   (F,G) \\
+	              &    x& \longmapsto     & i^{-1}(g) (x)   
+	   \end{array} 
+	   : 
+	   \begin{array}{cccc}
+	           &  F  & \longrightarrow &  G \\
+	   
+	              &   y& \longmapsto     & 
+		      i^{-1}(g) (x) (y) = g(x,y)  \\
+	   \end{array}
+\end{array}
+\]
+now let us show that $i $ is an isometry, with respect to the natural
+norms defined on $\mathcal{L} (E,F;G)  $  and 
+$\mathcal{L} (E,\mathcal{L} (F,G) )  $, for all 
+$f \in  \mathcal{L} (E, \mathcal{L} (F,G) )  $, we have 
+\begin{align*}
+\| i(f)  \| _{ \mathcal{L} (E,F;G) } = 
+\sup_{
+	\small
+	\begin{gathered}  
+		x \in  E \backslash {0_{E}}\\  
+		y \in  F \backslash {0_{F}}
+	\end{gathered}
+	\normalfont
+} 
+\frac{\| i(f) (x,y)  \| _{G}}{
+\| x \| _{E} \| y \| _{F}} &= 
+\sup_{
+	\small
+	\begin{gathered}  
+		x \in E \backslash {0_{E}}\\ 
+		x \in F \backslash {0_{F}}\\ 
+	\end{gathered}
+	\normalfont
+} 
+\frac{\| f(x) (y)  \| _{G}}{
+\| x \| _{E} \| y \| _{F}}
+\\
+			   &= 
+\sup_{x \in E \backslash \left\{ 0_{E} \right\}}  
+\frac{1}{\| x \| _{E}}  
+\sup_{y \in  F \backslash \left\{ 0_{F} \right\}}  
+\frac{\| f(x,y)  \| _{G}}{
+\| y \| _{F}} \\
+&= \sup_{x \in E \backslash \left\{ 0_{E} \right\}}  
+\frac{1}{\| x \| _{E}} 
+\| f(x) _{\mathcal{L} (F,G) } \|  \\
+&= 
+\| f \| _{\mathcal{L} \left( E,\mathcal{L} (F,G)  \right)}
+\end{align*}
+that is $i $ is an isometry, because
+of the isomorphism isometric 
+$i $ between $\mathcal{L} (E, \mathcal{L} (F,G) )  $ 
+and $\mathcal{L} (E,F;G)  $, we often identify 
+$\mathcal{L} (E,\mathcal{L} (F,G) )  $ to 
+$\mathcal{L} (E,F;G)  $, This is used 
+in particular in differential calculus on N.V.S 
+(for defining second derivative)
+\section{An introduction to differential calculus in N.V.S}
+Let $E $ and $F $ be two N.V.S over the a same
+field $\KK = \RR  $ or $\CC  $, and let $U $ be an open 
+subset of $E $ and $a \in U $. Finally, let 
+$ f : U \longrightarrow F $ be a map
+\begin{definition}[]
+We say that $f $ is differentiable at $a $ if there exist
+$g \in  \mathcal{L} (E,F)$ so that we have
+in the neighborhood of $a$
+\[
+\| f(x) -f(a)  - g(x-a)   \| _{F} = 
+o \left( \| x-a \|_{E}  \right) 
+\]
+\end{definition}
+\begin{remark}[]
+\begin{enumerate}[(1)]
+\item  If $f $ is differentiable at $a $ then 
+	$f $ is continuous at $a $. Indeed, by letting
+	$x \rightarrow a $, we obtain since ( $g $ is continuous
+	at $0_{E} $ ), that $\lim_{x \to a} f(x) = f(a)  $, 
+	showing that $f $ is continuous at $a $.
+\item  If $f $ is idfferentiable at $a $ then the continuous
+	linear mapping $g $ is unique.
+\end{enumerate}
+\end{remark}
+\begin{proof}
+	Let $g_1,g_2 \in \mathcal{L} (E,F)  $, each of them
+	satisfies 
+	\begin{align*}
+		\| f(x) -f(a) - g_1(x-a)  \| _{F} &=
+	o \left( \| x-a \|_{E}  \right)
+	\\
+		\| f(x) -f(a) - g_2(x-a)  \| _{F} &= 
+	o \left( \| x-a \|_{E}  \right)
+	\end{align*}
+	when $x $ is in the neighborhood of $a$, 
+	so for all $h \in E $ ( in the neighborhood of 
+	$0_{E} $ , we have 
+	\begin{align*}
+		\| (g_1-g_2) (h)  \| _{F} &= 
+		\| g_1(h) - g_2(h)  \| _{F} \\
+	  &=  
+	  \| 
+	  \left( f(a+h) -f(a) -g_2(h)  \right) - 
+	  \left( f(a+h) -f(a) -g_1(h)  \right)
+	  \|  \\
+	  & \leq 
+	  \underbrace{
+	  \| f(a+h) -f(a) -g_2(h)  \| _{F}
+	  }_{o(\| h \| _{E}) }  + 
+	  \underbrace{
+	  \| f(a+h) -f(a) -g_1(h)  \| _{F}
+	  }_{o(\| h \| _{E})  }  = o
+	  (\| h \| _{E}) 
+	\end{align*}
+	Thus $\| (g_1 - g_2) (h)  \| _{F} = o(\| h \| _{E})  $,
+	in other words 
+	\[
+	\lim_{\| h \| _{E} \to 0} 
+	\frac{\| (g_1-g_2) (h)  \| _{F}}{
+		\| h \| _{E}
+	} = 0
+	\]
+	now let $x \in  E \backslash \left\{ 0_{E} \right\} $  
+	be arbitrary, by taking $h = \veps x  $ and
+	$(\veps  \rightarrow^{> } 0)  $, we get 
+	\[
+	\lim_{\veps  \to ^{> } 0} 
+	\frac{
+	\| (g_1 - g_2) (\veps x)  \| _{F}
+	}{
+		\| \veps x \| _{E}
+	} = 
+	0
+	\]
+	thus we see 
+	\[
+		\frac{	
+	\| (g_1 - g_2)(x)   \|_{F}
+		}{
+			\| x \| _{E}
+		} = 0
+	\]
+	thus we see that 
+	\[
+	g_1(x)  = g_2(x)  \quad 
+	\left( \forall  x \in  E \backslash \left\{ 0_{E}
+	\right\} \right)
+	\]
+	which remains true for $x = 0_{E} $, hence
+	$g_1 (x) = g_2(x)  $  for all $x \in E $, therefore
+	$g_1 = g_2 $, by the uniqueness of $g $ is then
+	proved.
+\end{proof}
+\begin{definition}[]
+	If $f $ is differentiable 
+	at $a $ then the continuous linear mapping $g $ 
+	satisfying
+	\[
+	\| f(x) -f(a) - g(x-a)  \|_{F}  = 
+	o(\| x-a \|_{E} ) 
+	\]
+	is called
+	\begin{center}
+		\it
+		The derivative of $f $ at $a $, and it's 
+		denoted $f'(a)  $ 
+		\normalfont
+	\end{center}
+\end{definition}
+\section{Relationship with the classical case 
+	\texorpdfstring{$ E = F = \RR $}{E=F=R}
+}
+If $E = F = \RR $, and $U $ is an open subset of $\RR  $,
+$ f : U \longrightarrow \RR $, and $a \in U $ then the classical
+definition of the differentiability states that 
+\begin{center}
+	\it
+	$f $ is differentiable at $a $ if 
+	$\lim_{x \to a} \frac{f(x) -f(a) }{x-a} $  
+	exsits (i.e. $ \in \RR  $)
+	\normalfont
+\end{center}
+So if its the case and we let 
+\[
+l := 
+\lim_{x \to a} 
+\frac{f(x) - f(a)  }{ x-a}
+\]
+we desire that 
+\[
+\lim_{x \to a}
+\left( 
+	\frac{f(x) -f(a) }{x-a} - l
+\right) = 0
+\]
+that is 
+\[
+\lim_{x \to a} 
+\frac{f(x) -f(a) -l(x-a) }{x-a} = 0
+\]
+therefore we see
+\[
+\left| f(x) -f(a) -l(x-a)  \right| = o (\left| x-a \right|)  
+\quad  \text{ when } x \rightarrow a
+\]
+so hence 
+\[
+\begin{array}{cccc}
+      g : &  \RR   & \longrightarrow & \RR  \\
+           &  x  & \longmapsto     & lx \\ 
+          \in  \mathcal{L} (\RR ,\RR ) 
+\end{array}
+\]
+satisfies, so in the sense of Definition $2$, 
+$f $ is differnetiable at $a $ and 
+\[
+f'(a)  = 
+\left[ 
+	\begin{array}{cccc}
+	        & \RR     & \longrightarrow &  \RR \\
+	
+	           &    x& \longmapsto     &  lx \\ 
+	\end{array}
+\right]
+\]
+By identifying the homothety of center
+$0 $ and ratio $l$ to $l $, we obtain the equivalence
+between the classical case 
+$(E=F=\RR )  $, and the general case on N.V.S
+\[
+\begin{array}{cccc}
+       : &  \RR   & \longrightarrow & 
+       \mathcal{L} (\RR ,\RR ) \\
+
+           &  l  & \longmapsto     & \mathcal{H}(0,l):
+	   \begin{array}{cccc}
+	             &  \RR    & \longrightarrow &  \RR  \\
+	   
+	              & x    & \longmapsto     &  lx \\
+	   \end{array}
+\end{array}
+\]
+is an isomorphism isometric. \\
+In fact, we identify $\mathcal{L} (\RR ,\RR )  $ 
+with $\RR  $.
+\begin{definition}[]
+We say that $f $ is differentiable in $U $, if its differnetiable
+at every point of $U $. 
+\begin{itemize}
+\item If $f $ is differentiable in $U $ then it's
+	derivative is the map $f' $ defined by : 
+	\[
+	\begin{array}{cccc}
+	      f' : &  U  & \longrightarrow & 
+	      \mathcal{L} (E,F) \\
+	           &  a  & \longmapsto     & f'(a)  \\ 
+	\end{array}
+	\]
+	In the particular case $E = \RR  $, 
+	we can identify $\mathcal{L} (E,F) = 
+	\mathcal{L} (\RR ,F)$ to $F $, so we obtain
+	$ f' : U \longrightarrow F $ as in the classical
+	case $E = F = \RR  $.
+\end{itemize}
+\end{definition}
+\section{The Second Derivative}
+Let $E $ and $F $ be two N.V.S, and $U $ be an open
+subset of $E $, and $ f : U \longrightarrow F $ suppose that 
+$f $ is differentiable in $U $ and let 
+$ f' : U \longrightarrow \mathcal{L} (E,F)  $ be it's 
+derivative so we can ask if $f' $ is differentiable in $U$ 
+\begin{definition}[]
+We say that $f $ is twice differentiable 
+at $a  \in U$ if $f'  $ is differentiable at $a $. In this
+case we denote $f''(a)   $ the derivative of $f' $  at
+$a $, so 
+\[
+f''(a) \in  
+\mathcal{L} (E, \mathcal{L} (E,F) ) 
+\]
+called the second derivative of $f $ at $a$. 
+\end{definition}
+\begin{definition}[]
+We say that $f $ is twice differentiable in $U $ if 
+its twice differentiable at every point 
+of $U$. In such a case, the second derivative of $f$ is the 
+map.
+\[
+\begin{array}{cccc}
+      f'' : &  U  & \longrightarrow & 
+      \mathcal{L} (E, 
+      \mathcal{L} (E,F) ) \\
+           &   a & \longmapsto     & f''(a)  \\
+\end{array}
+\]
+\end{definition}
+Then we often consider $f''( a) (a \in U)   $, as
+an element of $\mathcal{L} (E,E;F)  $ that is 
+$f''(a)  $ is a continuous bilinear map from 
+$E \times E$ to $F$.
+% \end{document}
