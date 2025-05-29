@@ -1,0 +1,627 @@
+% \documentclass{report}
+% 
+% \input{abdou.tex}
+
+\lecday[2025-05-29]
+
+%  \begin{document}
+\begin{proof}
+It's known that $K^{\bot } $ is a 
+\underline{
+vector subspace 
+} of $H $, of course ( \underline{\textcolor{red}{Algebra 3}} ). Let
+us prove that $K^{\bot }$ is closed. \\
+let $( x_{n} )_{n \in \NN}  $ be a sequence of $K^{\bot } $, which
+converges in $H $ to some $x \in  H $. and let 
+us show that we have necessary $x \in  K^{\bot } $, using the 
+continuity of the inner product 
+\[
+  \fbox{
+    \textcolor{red}{
+      $\left\langle \cdot , \cdot  \right\rangle  $ 
+    }
+  }
+\]
+(with respect to it's $1^{st} $ variable). we have for all 
+$u \in  K $ : 
+\begin{align*}
+\left\langle 
+  x, u
+\right\rangle &= 
+\left\langle 
+  \lim_{n \to \infty} x_{n}, u
+\right\rangle  \\
+              &= 
+              \lim_{n \to \infty} 
+              \left\langle 
+                x_{n}, u
+              \right\rangle  \\
+              &= 
+              \lim_{n \to \infty}  0 = 0
+\end{align*}
+implying that :
+\[
+\fbox{
+$\textcolor{red}{ x \bot  u
+  \quad \quad 
+\forall u \in K
+} 
+$
+}
+\]
+Thus consequently, $K^{\bot } $ is closed in $H$.
+\\
+\underline{
+  \large
+\textsc{ $K \cap K^{\bot } = \left\{ 0_{H} \right\}$ ? :} 
+\warning
+}
+\\
+for all $x \in  K \cap K^{\bot } $, we have 
+\[
+x \bot x; \quad \text{i.e. }  
+\left\langle x, x \right\rangle  = 0 \quad \text{i.e. }  
+\| x \| ^2  = 0 \quad \text{i.e. }  
+\| x \| = 0  \implies x = 0_{H}
+\]
+hence $K \cap K^{\bot } \subset \left\{ 0_{H} \right\}$; hence 
+\[
+K \cap K^{\bot } = \left\{ 0_{H} \right\}
+\]
+Thus the sum :
+\[
+  \fbox{
+$K + K^{\bot } \quad \quad \text{ \textcolor{blue}{is direct}}$
+  }
+\]
+\underline{
+  \large
+  \textsc{ $K +  K^{\bot } \overset{?}{=}  H$ :}
+\warning
+}
+\\
+Let $x \in  H $ be arbitrary. Consider $u = \pi _{K}(x)  \in  K $. 
+By corollary $3 $, we have : 
+\[
+  \fbox{
+    \textcolor{red}{
+    $
+\left\langle 
+  x - \pi _{K}(x) , v 
+\right\rangle  = 0 \quad \quad 
+\forall  v \in  K$
+    }
+  }
+\]
+That is : 
+\[
+  (x - \pi _{K}(x) )  \in  K^{\bot }
+\]
+hence : 
+\[
+x = 
+\underbrace{ 
+\pi _{K}(x) 
+}_{ \in K}  + 
+\underbrace{
+  (x - \pi _{K}(x) ) 
+}_{ \in  K^{\bot }}  \in  K + K^{\bot }
+\]
+Thus : 
+\[
+H \subset K + K^{\bot } \subset H
+\] 
+Hence : 
+\[
+  \fbox{
+    \textcolor{blue}{
+$H = K \oplus K^{\bot }$
+    }
+  }
+\]
+This 
+\underline{completes} the proof.
+\end{proof}
+
+\begin{definition}[]
+Let $H $ be a Hilbert space, and $K $ be a closed
+vector subspace of $H $. Then $K^{\bot } $ is called 
+the \underline{orthogonal complement} of $K $ (in $H $).
+\end{definition}
+\divider
+\underline{
+  \large
+\textsc{Exercise :} 
+}
+\warning
+\normalfont
+\\
+\lefthand ~
+Let $H $ be a \underline{Hilbert} and $K $ be 
+a vector subspace of $H $ (not necessary closed). Show that we have : 
+\[
+  \fbox{
+    \textcolor{red}{
+     $K^{\bot  \bot } = \overline{K}$ 
+    }
+  }
+\]
+\divider
+\lefthand ~ The orthogonal \underline{projection} 
+on a finite-dimensional vector subspace of a \textcolor{red}{
+\underline{Hilbert}} space : 
+\\
+Let $H $ be a Hilbert space and $F $ be a 
+\underline{
+finite-dimensional
+} vector subspace of $H $, so $F $ is closed in $H $ and 
+we can speak about the (orthogonal) projection of a vector 
+of $H $ onto $F $ and ask about an expression of it with respect
+to the appropriate basis of $F $. \\
+In what follows, we will find such an expression relative to 
+an orthonormal basis of $F $.\\
+Let $\mathcal{B} = (e_1, e_2, \hdots , e_{n})$ 
+where $(n = dimF \in  \NN_0)$, be an orthonormal basis 
+of $F$ ( $\mathcal{B}  $ exists and it can be formed 
+by the \textcolor{red}{Gram-Schmidtz} algorithm for example). 
+we have the following proposition : 
+\begin{theorem}[]
+For every $x \in  H $, we have : 
+  \[
+      \textcolor{blue}{
+    \fbox{
+        $\pi _{F}(x) = 
+        \sum_{k=1}^{n} 
+        \left\langle e_{k}, x \right\rangle e_{k}$ 
+      }
+    }
+  \]
+\end{theorem}
+\begin{proof}
+Let $x \in  H $ be fixed.  \\
+since $\pi _{F}(x)  \in  F = \left\langle 
+  e_1, e_2, \hdots , e _n 
+\right\rangle$, then we can write $\pi _{F}(x)  $ as : 
+\[
+  \pi _{F}(x) = \sum_{k=1}^{n} 
+  \lm_{k} e_{k} \quad (\lm_{k} \in  \CC , k=1, \hdots , n) \quad \quad 
+  \quad \quad (1)  
+\]
+Next, by Corollary $3 $, we have : 
+\begin{align*}
+  (x-\pi _{F}(x) )  \in  F^{\bot } &=  
+  \left\langle 
+    e_1, e_2, \hdots , e _n 
+  \right\rangle ^{\bot } \\
+                                 &= 
+              \left\{ e_1, \hdots , e _n  \right\}^{\bot }
+\end{align*}
+That is : 
+\[
+\left\langle 
+  e_{k}, x-\pi _{F}(x) 
+\right\rangle  = 0 \quad \forall k \in  \left\{ 
+1, 2, \hdots , n
+\right\}
+\]
+For all $k \in  \left\{ 1, 2, \hdots , n \right\} $, we have :
+\begin{align*}
+&\iff \left\langle 
+  e_{k}, x - \pi _{K}(x) 
+\right\rangle  = 0 \\
+& \iff 
+\left\langle 
+  e_{k}, 
+  x - \sum_{\ell =1}^{n} 
+  \lm_{\ell } e_{\ell }
+\right\rangle = 0 \\
+& \iff   
+\left\langle 
+  e_{k}, x
+\right\rangle  - 
+\sum_{\ell  = 1}^{n}  
+\lm_{\ell }
+\underbrace{
+\left\langle 
+  e_{k}, \ell 
+\right\rangle 
+}_{
+    \dd _{k, \ell } = 
+    \begin{cases}
+      1 \\
+      0
+    \end{cases}
+    \begin{gathered}  
+      \text{ if } \ell  = k\\ 
+      \text{ else } 
+    \end{gathered}
+    } 
+    \\
+&\iff  
+\left\langle 
+  e_{k}, x
+\right\rangle  - \lm_{k} = 0 \\
+& \iff 
+\lm_{k} = \left\langle 
+  e_{k}, x
+\right\rangle \quad 
+\forall k \in  \left\{ 1, 2, \hdots , n \right\}
+\quad \quad \quad (2) \quad 
+\end{align*}
+By substituting into $(1)$, we get : 
+\[
+  \textcolor{blue}{
+  \fbox{
+    $
+  \pi _{F}(x)  =
+  \sum_{k=1}^{n} 
+  \left\langle 
+    e_{k}, x
+  \right\rangle  e_{k}
+  $
+  }
+  }
+\]
+As required.
+
+\end{proof}
+
+\begin{corollary}[]
+For all $x \in  H $, we have : 
+\[
+  \textcolor{purple}{
+  \fbox{ 
+    $\| \pi _{F}(x)  \| ^2 = 
+    \sum_{k=1}^{n} 
+    \left| 
+    \left\langle e_{k}, x \right\rangle 
+    \right|^2 $ 
+  }
+  }
+\]
+\end{corollary}
+\begin{proof}
+Since the vectors $\left\langle e_{k}, x \right\rangle e_{k} $ are pairwise
+orthogonal, we have by the 
+  \textcolor{cyan}{
+\underline{
+  \textsc{
+Pythagorean 
+Theorem 
+  }
+} :
+  }
+ \begin{align*}
+   \| \pi _{F}(x)  \|  &= 
+   \| \sum_{k=1}^{n} 
+   \left\langle e_{k}, x \right\rangle e_{k}\| ^2  \\
+   &=  
+   \sum_{k=1}^{n} 
+   \underbrace{
+   \| 
+   \left\langle 
+     e_{k},x
+   \right\rangle e_{k}
+   \| ^2  
+   }_{= \left| \left\langle e_{k},x \right\rangle  \right|^2 } 
+   = \sum_{k=1}^{n} 
+   \left| \left\langle e_{k},x \right\rangle  \right|^2 
+ \end{align*}
+ as required.
+\end{proof}
+
+\begin{center}
+  \textcolor{purple}{
+  \textsc{
+    \underline{
+      The Riesz representation Theorem :
+    }
+  }
+  }
+\end{center}
+\begin{theorem}[(F. Riesz)]
+  Let $H$ be a Hilbert space. Then for 
+  every $f \in  H' $ there \underline{exists} a 
+  \underline{unique} $a \in H $ such that :
+  \[
+    \textcolor{purple}{
+      \fbox{
+        $f(x) = \left\langle a,x \right\rangle  \quad 
+        \left( \forall x \in  H \right)$
+      }
+    }
+  \]
+\end{theorem}
+\begin{proof}
+Let $f \in  H' $ (i.e. $f $ is contiuous linear form on $H $).
+\\
+\textsc{
+  \large
+\underline{
+  The existence of $a$   
+} : 
+\warning
+\normalfont
+}
+\\
+If $f = 0_{H'} $, it sufficies to take $a = 0_{H} $. 
+Suppose for the sequel that $ f \neq 0_{H'} $. \\
+So $Ker(f)$ is a closed (linear) hyperplane of $H $. 
+it follows (according to the corollary that $Ker(f) \oplus Ker(f)^{\bot } = H$),
+and $dim(Ker(f))^{\bot } = 1$ \footnote {
+  A note the teacher wrote, $u, v \in  (ker(f) )^{\bot }$   
+  \begin{align*}
+    w &= f(v) u - f(u)  v \in Ker(f)^{\bot }  
+    \\
+    f(w) &=  f(v) f(u)  - f(u) f(v)  = 0
+    \\
+       &\implies  w \in  Ker(f) \\
+       &\implies w \in Ker(f) \cap Ker(f) ^{\bot } = 
+    \left\{ 0_{H} \right\} \\
+         &\implies 
+         w = 0_{H}
+  \end{align*}
+}, 
+let $a_0 \in  (Ker(f) ) ^{\bot } $ such that 
+$a_0 \neq 0_{H} $, so : 
+\[
+  (Ker(f) ) ^{\bot } = 
+  \left\langle 
+    a_{0}
+  \right\rangle 
+\]
+we have :  
+\begin{align*}
+  f(a_0)  &= 
+  \frac{f(a_0) }{\| a_0 \| ^2 }
+  \| a_0 \| ^2  \\
+          &= 
+          \frac{a_0}{\| a_0 \| ^2 } 
+          \left\langle 
+            a_0, a_0
+          \right\rangle  \\
+         &=
+         \left\langle 
+           \frac{\overline{f(a_0) }}{\| a_0 \| ^2 } 
+           a_0, a_0
+         \right\rangle  
+\end{align*}
+set $a := \frac{\overline{f(a_0) }}{\| a_0 \| ^2 }a_0$, so we have :  
+\[
+  \textcolor{cyan}{
+   \fbox{
+     $f(a_0) = \left\langle a, a_0 \right\rangle $
+   }
+  }
+\]
+now, for all $x \in  H $, for $\lm \in \CC, y \in Ker(f) $, we can write $x $ as :  
+\[
+x = y + \lm a_0 \quad \quad  \left( 
+  \text{ since } H = 
+  Ker(f)  \oplus (Ker(f) )^{\bot }= 
+  Ker(f) \oplus \left\langle a_0 \right\rangle  
+\right)
+\]
+by inserting $f $ on both sides : 
+\begin{align*}
+  f(x)  &= f(y + \lm a_0) \\
+        &= f(y)  + \lm f(a_0)  \\
+        &= \lm \left\langle a, a_0 \right\rangle  \\
+        &=
+        \underbrace{
+        \left\langle a, y \right\rangle 
+        }_{=0, \quad y \in  Ker(f), a \in Ker(f)^{\bot } } +  
+        \lm
+        \left\langle a, a_0 \right\rangle  \\ 
+        &= 
+        \left\langle a,y  \right\rangle  + 
+        \left\langle a, \lm a_0 \right\rangle  
+        \\
+        &= 
+        \left\langle 
+          a, y + \lm a_0
+        \right\rangle  = \left\langle a,x \right\rangle 
+\end{align*}
+Hence : 
+\[
+  \textcolor{blue}{
+    \fbox{
+      $f(x) = \left\langle a, x \right\rangle \quad \quad (\forall x \in  H)  $
+    }
+  }
+\]
+\lefthand ~ As required.
+\\
+\textsc{
+  \large
+\underline{
+  The uniqueness of $a $
+} : 
+\warning
+\normalfont
+}
+\\
+Let $a,b \in  H $ such that for all $x \in  H $ : 
+\[
+f(x)  = \left\langle a,x \right\rangle = \left\langle b,x \right\rangle 
+\]
+thus $\forall x \in  H $ : 
+\[
+\left\langle a-b, x \right\rangle  = 0
+\]
+\lefthand ~ Hence $(a-b) \in  H^{\bot } = \left\{ 0_{H} \right\} $, 
+thus $a-b = 0_{H}$; thus $a = 0$, hence the uniqueness 
+of $a$. This completes the proof. 
+\end{proof}
+\begin{corollary}[]
+  Any \underline{real} \textcolor{red}{Hilbert} space $H $ 
+  is \underline{Isometrically isomorphic} to it's \underline{continuous dual} 
+  $H'$. 
+\end{corollary}
+\begin{proof}
+Let $H $ be a Hilbert space. Consider : 
+\[
+\begin{array}{cccc}
+      \FF   : &  H  & \longrightarrow & H' \\
+
+           &  a  & \longmapsto     & \FF _{a} \\ 
+\end{array}
+\]
+where $\FF _{a}$ is :
+\[
+\begin{array}{cccc}
+      \FF _{a} : &  H  & \longrightarrow & \RR  \\
+
+           &  x  & \longmapsto     & \left\langle a,x \right\rangle  \\ 
+\end{array}
+\]
+The \textcolor{purple}{
+  \textsc{
+Riesz Representation Theorem}
+  } ensures that $\FF  $ is bijective. Next, 
+  it's clear that $\FF  $ is linear and that for all $a \in  H$, we have :  
+  \[
+  \| \FF (a)  \| _{H'} = 
+  \mid \mid \mid  \FF _{a} \mid \mid \mid _{H'} \overset{
+    \text{\textcolor{blue}{Cauchy Schwartz}} 
+  }{=}  
+  \| a \| _{H}
+  \]
+  Implying that $\FF  $ is an isomorphism isometric of N.V.S
+\end{proof}
+\begin{center}
+  \textsc{
+    \textcolor{magenta}{
+      \underline{
+      \righthand ~ Further Applications of The Riess Representation Theorem ~
+      \lefthand
+      }
+    }
+  }
+\end{center}
+\begin{corollary}[]
+  Let $H $ be a Hilbert space and $G $ be a \underline{closed}
+  vector subspace of $H$.  \\
+  Then, every continuous linear form on $G$ has a unique 
+  \textcolor{red}{Hahn-Banach} extension on $H$. Precisely : 
+  \[
+    \textcolor{purple}{
+    \fbox{
+      $\forall g \in  G', 
+      \quad \exists ! h \in  H', \quad 
+      f_{|G} = g \quad \text{ and } \quad 
+      \mid \mid \mid  h \mid \mid \mid _{H'} = 
+      \mid \mid \mid  g \mid \mid \mid _{G'}$ 
+    }
+    }
+  \]
+\end{corollary}
+\begin{proof}
+  Let $g \in  G'$ and show that $g $ has
+  a unique \textcolor{red}{Hahn-Banach} extension in $H $.  
+  Since $G$ is closed in $H $ which is a complete space  
+  then $G $ is complete; That is, $G $ is \textcolor{purple}{Hilbert}.
+  By the 
+  \textcolor{purple}{
+    \textsc{
+  Riesz Representation Theorem 
+    }
+  }, 
+  \[
+  \exists ! a \in  G, \quad 
+  g(x)  = \left\langle a,x \right\rangle   
+  \quad \quad \left( \forall  x \in  G \right)
+  \]
+  An obvious \textcolor{red}{Hahn-Banach} extension of $g $ 
+  on $H $ is $h_1 \in  H'$, given by :  
+  \[
+  h_1(x) = \left\langle 
+    a, x
+  \right\rangle   \quad \quad 
+  \left( \forall  x \in  H \right)
+  \]
+  Let us show that this is the unique 
+  \textcolor{red}{Hahn-Banach} extension of $g$. 
+  Let $h_2 \in  H' $ be another \textcolor{red}{Hahn-Banach} 
+  extension of $g $ on $H$. By the 
+  \textcolor{purple}{
+    \textsc{
+  Riesz Representation Theorem 
+    }
+  } : 
+  \[
+  \exists ! b \in  H, \quad 
+  h_2(x) = \left\langle 
+    b,x
+  \right\rangle \quad \quad (\forall  x \in  H) 
+  \]
+  since $h_2 $ extends $g $, we have :
+  \begin{align*}
+    h_2(x)  &= g(x)  \quad \quad (\forall  x \in  G)  
+    \\
+    \left\langle b,x \right\rangle  &=
+    \left\langle a,x \right\rangle   \quad \quad 
+    \left( \forall  x \in  G \right) 
+    \\
+    \left\langle b-a, x \right\rangle  &= 0  \quad \quad 
+    \left( 
+      \forall  x \in  G
+    \right)
+  \end{align*}
+  In particular since $a \in G $ :  
+  \[
+  \left\langle 
+    b-a, a
+  \right\rangle  = 0
+  \]
+  thus : 
+  \[
+    (b-a)  \bot a
+  \]
+  so, by the 
+  \textcolor{cyan}{
+    \textsc{
+      Pythagorean Theorem
+    }
+  }, we have : 
+  \begin{align*}
+    \underbrace{
+  \| (b-a) + a  \| ^2  
+    }_{= \| b \|^2  } 
+  = 
+  \| b-a \|  ^2  + 
+  \| a \| ^2 
+  \end{align*}
+  Thus : 
+  \[
+    \textcolor{magenta}{
+      \fbox{
+        $\| b-a\|^2  = 
+        \| b \|^2  - \| a \|^2$
+      }
+    }
+  \]
+  But since $h_2 $ is a \textcolor{red}{Hahn-Banach} extension 
+  of $g $, we have : 
+  \[
+  \mid \mid \mid  h_2 \mid \mid \mid _{H'} = 
+  \mid \mid \mid  g \mid \mid \mid _{G'}
+  \]
+  i.e. 
+  \[
+  \| b \| = \| a \| 
+  \]
+  Hence : 
+  \[
+  \| b-a \| ^2  = 0
+  \]
+  implying that 
+  \[
+    b = a
+  \]
+  Hence $h_2 = h_1$, as required. \\
+  This completes the proof
+\end{proof}
+
+
+% \end{document}
